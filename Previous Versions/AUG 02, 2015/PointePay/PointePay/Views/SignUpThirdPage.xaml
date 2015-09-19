@@ -1,0 +1,77 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePay.Views.SignUpThirdPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <HyperlinkButton NavigateUri="/Views/HomePage.xaml"  FontSize="22" Margin="0,-40,20,0" Foreground="WHITE" HorizontalAlignment="Right" FontFamily="Verdana, Geneva, sans-serif">
+                <HyperlinkButton.Template>
+                    <ControlTemplate>
+                        <TextBlock TextAlignment="Center">SKIP</TextBlock>
+                    </ControlTemplate>
+                </HyperlinkButton.Template>
+            </HyperlinkButton>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <StackPanel  Margin="10,10,10,10">
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock Text="Communication message with verification code" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="has been sent to following number. Please verify" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="your number by entering the code.Standard" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="SMS charges may apply." FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                </StackPanel>
+                <StackPanel Margin="0,40,0,0" >
+                    <TextBlock Name="txtBusinessPhone" Text="+234 1122334455" FontFamily="Verdana, Geneva, sans-serif" FontSize="25" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" >
+                    <StackPanel>
+                        <TextBox  Width="90" BorderBrush="Gray" BorderThickness="2"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox  Width="90" BorderBrush="Gray" BorderThickness="2"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox  Width="90" BorderBrush="Gray" BorderThickness="2"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox  Width="90" BorderBrush="Gray" BorderThickness="2"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox  Width="90" BorderBrush="Gray" BorderThickness="2"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <Button Content="Verify" Foreground="Black" BorderBrush="Black" HorizontalAlignment="Center" Width="300"/>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <TextBlock Text="Don't receive code yet?" FontFamily="Verdana, Geneva, sans-serif" FontSize="25" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <Button Content="Resend" Foreground="Black" BorderBrush="Black" HorizontalAlignment="Center" Width="300"/>
+                </StackPanel>
+            </StackPanel >
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

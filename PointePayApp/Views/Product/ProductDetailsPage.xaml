@@ -1,0 +1,108 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.ProductDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <Image Source="/Assets/arrow-left.png" Margin="10,-50,0,0" Width="35" Height="35" HorizontalAlignment="Left" Tap="Image_Tap"  />
+            <TextBlock Text="PRODUCT DETAILS" FontFamily="Verdana, Geneva, sans-serif" FontSize="23" Foreground="White" HorizontalAlignment="Center"  Margin="0,-40,0,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <StackPanel>
+                <StackPanel   Width="460" HorizontalAlignment="Center"      Margin="5,5,5,0">
+                    <Ellipse x:Name="ellipse" Width="90" Height="90" Stroke="Gray" Margin="10,10,10,10">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="imgProduct" ImageSource="/Assets/Product/archive.png" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Category" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblCategory" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Sub Category" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblSubCategory" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Item Name" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblItemName" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Discounted Price" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblDiscountedPrice" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Sale Price" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblSalePrice" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="10,5,10,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Cost Price" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblCostPrice" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="UPC" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblUPC" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,5,5,0">
+                    <StackPanel Orientation="Horizontal" Width="200">
+                        <TextBlock  Text="Description" FontSize="21" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="GreenYellow"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="260">
+                        <TextBlock Name="lblDescription" Text="" FontSize="21" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

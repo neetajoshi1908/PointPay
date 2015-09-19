@@ -1,0 +1,110 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.Customer.CustomerDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <Image Source="/Assets/arrow-left.png" Margin="15,-50,0,0" Width="60" Height="45" HorizontalAlignment="Left" Tap="Image_Tap"/>
+            <TextBlock Text="CUSTOMER DETAILS" FontFamily="Segoe WP" FontSize="24" Foreground="White" HorizontalAlignment="Center"  Margin="0,-40,0,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Top">
+
+            <StackPanel>
+                <StackPanel   Width="460" HorizontalAlignment="Center"      Margin="5,5,5,0">
+                    <Ellipse x:Name="ellipse" Width="100" Height="100" Stroke="Transparent" Margin="10,10,10,10">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="imgCustomer"  />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="Name" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00" FontStyle="Normal"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblName" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="Email" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblEmail" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="Phone" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblPhone" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="State" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblState" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="10,15,10,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="Area" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblArea" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="City" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblCity" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="460" HorizontalAlignment="Center" Height="40" Background="White"  Margin="5,15,5,0">
+                    <StackPanel Orientation="Horizontal" Width="150">
+                        <TextBlock  Text="Street" FontSize="22" FontFamily="Segoe WP" Margin="10,5,0,0" Foreground="#65CC00"   />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="310">
+                        <TextBlock Name="lblStreet" Text="" FontSize="20" FontFamily="Segoe WP" Margin="0,5,0,0" Foreground="Black"   />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Width="440" HorizontalAlignment="Center"  Background="White"  Margin="5,50,5,0">
+                    <StackPanel Orientation="Horizontal" Width="220" >
+                        <Button Name="btnEdit"  Content="Edit" FontSize="24" FontFamily="Segoe WP" Width="200"  BorderBrush="Black" Foreground="Black" Click="btnEdit_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="220">
+                        <Button Name="btnHistory"  Content="History" FontSize="24" FontFamily="Segoe WP" Width="200"  BorderBrush="Black" Foreground="Black" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

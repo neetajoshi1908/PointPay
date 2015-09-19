@@ -1,0 +1,78 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePay.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+   
+    shell:SystemTray.IsVisible="True">
+ <!--ApplicationBar = "{StaticResource GlobalAppBar}"-->
+   
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBarIcon/appbar.add.png" Text="save"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBarIcon/appbar.edit.png" Text="settings"/>
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="menu item 1" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+                <shell:ApplicationBarMenuItem Text="menu item 2" />
+            </shell:ApplicationBar.MenuItems>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar
+        IsVisible="True"
+        IsMenuEnabled="True"
+        Mode="Minimized"
+        Opacity="0.65"
+        StateChanged="OnApplicationBarStateChanged"
+        BackgroundColor="#FFFF9800">
+        <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem
+                Text="refresh" 
+                 >
+                     
+                </shell:ApplicationBarMenuItem>
+                <shell:ApplicationBarMenuItem
+                Text="settings"
+                 />
+        </shell:ApplicationBar.MenuItems>
+    </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+    
+    
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        </StackPanel>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+    
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

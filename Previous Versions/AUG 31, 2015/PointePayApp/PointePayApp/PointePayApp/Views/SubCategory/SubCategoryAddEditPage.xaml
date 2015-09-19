@@ -1,0 +1,76 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.SubCategoryAddEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <Image Name="ImgBack"  Source="/Assets/Employee/arrow_previous.png" Margin="10,-50,0,0" Width="35" Height="35" HorizontalAlignment="Left" Tap="ImgBack_Tap"/>
+            <TextBlock Text="ADD SUB CATEGORY" FontFamily="Verdana, Geneva, sans-serif" FontSize="25" Foreground="White" HorizontalAlignment="Center"  Margin="0,-40,0,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Top">
+            <StackPanel  HorizontalAlignment="Center"      Margin="0,15,0,0">
+                <Image Width="120" Source="/Assets/category/icon_sub_categories.png" Margin="0,0,0,0" />
+            </StackPanel>
+            <StackPanel Margin="0,150,0,0" Height="600">
+                <!--First Name-->
+                <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,20,0,0">
+                    <toolkit:PhoneTextBox Name="txtsubcategoryName" GotFocus="txtsubcategoryName_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Sub Category Name..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                </Border>
+                <!--Last Name-->
+                <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                    <toolkit:PhoneTextBox Name="txtsubcategoryDescription" GotFocus="txtsubcategoryDescription_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Description..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                </Border>
+                <!--parent category Dropdown-->
+                <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                    <toolkit:ListPicker x:Name="listPickerCategory" FontFamily="verdana" ExpansionMode="FullScreenOnly"  FontSize="20" Margin="-5,-5,-5,-5" Width="350" Height="60"   BorderBrush="Transparent">
+                        <toolkit:ListPicker.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding categoryCode, Mode=TwoWay}" Foreground="Gray"/>
+                            </DataTemplate>
+                        </toolkit:ListPicker.ItemTemplate>
+                        <toolkit:ListPicker.FullModeItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding categoryCode, Mode=TwoWay}" Foreground="White"/>
+                            </DataTemplate>
+                        </toolkit:ListPicker.FullModeItemTemplate>
+                    </toolkit:ListPicker>
+                </Border>
+                <!--Save-->
+                <Button Name="btnSave" Content="Add Sub Category" Width="280"  Margin="0,25,0,0" BorderBrush="Black" FontFamily="verdana" Foreground="Black" Click="btnSave_Click"/>
+            </StackPanel>
+            <!--Loader-->
+            <Grid x:Name="myIndeterminateProbar" Visibility="Collapsed"   Margin="0,-50,0,0"  Background="Transparent"  >
+                <Grid Background="White" Opacity="0.3"></Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <ProgressBar IsIndeterminate="True" Foreground="Red" Margin="0,-10,0,0" ></ProgressBar>
+                    <TextBlock Text="Loading..." FontSize="22"  FontStyle="Italic" Foreground="Black"  HorizontalAlignment="Center" ></TextBlock>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

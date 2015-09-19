@@ -1,0 +1,178 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.EmployeeAddEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <Image Name="ImgBack"  Source="/Assets/arrow-left.png" Margin="15,-50,0,0" Width="60" Height="45" HorizontalAlignment="Left" Tap="ImgBack_Tap"/>
+            <TextBlock Name="lblHeader" Text="" FontFamily="Segoe WP" FontSize="24" Foreground="White" HorizontalAlignment="Center"  Margin="0,-40,0,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0" VerticalAlignment="Top">
+            <StackPanel   Width="460" HorizontalAlignment="Center"      Margin="5,5,5,0">
+                <Image Width="120" Name="ImgEmployee" Source="/Assets/Employee/account-circle.png" Margin="0,0,0,0" Tap="ImgEmployee_Tap" />
+            </StackPanel>
+            <ScrollViewer Height="525" HorizontalAlignment="Left" Margin="50,150,0,0" Name="scrollViewer1" VerticalAlignment="Top" Width="380" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                <StackPanel>
+                    <!--First Name-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,20,0,0">
+                        <toolkit:PhoneTextBox Name="txtFirstName" GotFocus="txtFirstName_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="First Name..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <!--Last Name-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                        <toolkit:PhoneTextBox Name="txtLastName" GotFocus="txtLastName_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Last Name..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <!--Email-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                        <toolkit:PhoneTextBox Name="txtEmail" GotFocus="txtEmail_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Email..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <!--Phone-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                        <toolkit:PhoneTextBox Name="txtPhone" GotFocus="txtPhone_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Phone..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" InputScope="Number"/>
+                    </Border>
+                    <!--Salary-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                        <toolkit:PhoneTextBox Name="txtSalary" GotFocus="txtSalary_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Salary..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <!--Username-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,15,0,0">
+                        <toolkit:PhoneTextBox Name="txtUsername" GotFocus="txtUsername_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Username..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <!--State Dropdown-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,10,0,0">
+                        <toolkit:ListPicker x:Name="listPickerState" FontFamily="verdana" ExpansionMode="FullScreenOnly" SelectionChanged="listPickerState_SelectionChanged"  FontSize="20" Margin="-5,-5,-5,-5" Width="350" Height="60"   BorderBrush="Transparent">
+                            <toolkit:ListPicker.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding stateName, Mode=TwoWay}" Foreground="Gray"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.ItemTemplate>
+                            <toolkit:ListPicker.FullModeItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding stateName, Mode=TwoWay}" Foreground="White"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.FullModeItemTemplate>
+                        </toolkit:ListPicker>
+                    </Border>
+                    <!--Area Dropdown-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,10,0,0">
+                        <toolkit:ListPicker x:Name="listPickerArea" SelectionChanged="listPickerArea_SelectionChanged"  FontFamily="verdana" ExpansionMode="FullScreenOnly"  FontSize="20" Margin="-5,-5,-5,-5" Width="350"   BorderBrush="Transparent"  >
+                            <toolkit:ListPicker.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding area, Mode=TwoWay}" Foreground="Gray"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.ItemTemplate>
+                            <toolkit:ListPicker.FullModeItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding area, Mode=TwoWay}" Foreground="White"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.FullModeItemTemplate>
+                        </toolkit:ListPicker>
+                    </Border>
+                    <!--City Dropdown-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,10,0,0">
+                        <toolkit:ListPicker x:Name="listPickerCity"  FontFamily="verdana" ExpansionMode="FullScreenOnly"  FontSize="20" Margin="-5,-5,-5,-5" Width="350" Height="60"  BorderBrush="Transparent"  >
+                            <toolkit:ListPicker.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding city, Mode=TwoWay}" Foreground="Gray"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.ItemTemplate>
+                            <toolkit:ListPicker.FullModeItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding city, Mode=TwoWay}" Foreground="White"/>
+                                </DataTemplate>
+                            </toolkit:ListPicker.FullModeItemTemplate>
+                        </toolkit:ListPicker>
+                    </Border>
+                    <!--Street-->
+                    <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,10,0,0">
+                        <toolkit:PhoneTextBox Name="txtStreet" GotFocus="txtStreet_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Street..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                    </Border>
+                    <Button Content="Select roles" FontSize="24" FontFamily="Segoe WP" Width="200" Margin="0,5,0,0" BorderBrush="Black" Foreground="Black" Name="btnRoles" Click="btnRoles_Click"/>
+                    <Button Name="btnSave" Content="Save" Width="200" FontSize="24" FontFamily="Segoe WP" Margin="0,5,0,0" BorderBrush="Black" Foreground="Black" Click="btnSave_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+            <Popup x:Name="popup">
+                <StackPanel x:Name="LayoutRoles" Width="400" Height="Auto" Margin="40,50,50,0"  Background="White" >
+                    <Border BorderBrush="LightGray" BorderThickness="1">
+                        <StackPanel>
+                            <StackPanel Width="380" Margin="10,10,10,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Width="350">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Select roles" FontFamily="Segoe WP" Foreground="Black" FontSize="25" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <StackPanel  Width="30">
+                                        <Image Name="btnRoleCancel" Source="/Assets/close_icon.png"  Width="30" Margin="0,0,0,0" Tap="btnRoleCancel_Click"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                                <!--First Name-->
+                                <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="300" Margin="0,20,0,0">
+                                    <toolkit:PhoneTextBox Name="txtRoleTitle" GotFocus="txtRoleTitle_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Title..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="300" />
+                                </Border>
+                            </StackPanel>
+                            <phone:LongListSelector x:Name="lstRoles" Background="Transparent" >
+                                <phone:LongListSelector.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Width="350" Height="70" Background="Transparent"  Margin="5,0,0,0">
+                                            <CheckBox Content="{Binding Description}" IsChecked="{Binding chkstate, Mode=TwoWay}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CheckBoxStyleGrey}" Foreground="Black"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </phone:LongListSelector.ItemTemplate>
+                            </phone:LongListSelector>
+                            <StackPanel Width="200" Orientation="Horizontal" HorizontalAlignment="Center" >
+                                <Button Content="Okay" Width="200" Name="btnRoleOk" Click="btnRoleOk_Click" Foreground="Gray" BorderBrush="Gray"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Popup>
+            <!--Image select Popup-->
+            <Popup x:Name="ImagePopup">
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <StackPanel Width="480" Height="210" Background="WhiteSmoke" >
+                        <StackPanel HorizontalAlignment="Right" Width="50" Height="50">
+                            <Image Name="btnclose" Source="/Assets/close_icon.png"  Width="30" Margin="0,15,15,0"/>
+                        </StackPanel>
+                        <Button x:Name="btnCapture" Width="420" Content="Capture" Foreground="Black" BorderBrush="Black" />
+                        <Button x:Name="btnChooser" Width="420" Content="Chooser" Foreground="Black" BorderBrush="Black" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+            <!--Loader-->
+            <Grid x:Name="myIndeterminateProbar" Visibility="Collapsed"  Margin="0,-50,0,-40"  Background="Transparent"  >
+                <Grid Background="Gray" Opacity="0.5"></Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <ProgressBar IsIndeterminate="True" Foreground="Red" Margin="0,-10,0,0" ></ProgressBar>
+                    <TextBlock Text="Loading..." FontSize="22" FontFamily="Segoe WP"   Foreground="Black"  HorizontalAlignment="Center" ></TextBlock>
+                </StackPanel>
+            </Grid>
+            <!--Gray Background-->
+            <Grid x:Name="grdGrayBackground" Visibility="Collapsed" Margin="0,-50,0,-40"  Background="Transparent"  >
+                <Grid Background="Gray" Opacity="0.5"></Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

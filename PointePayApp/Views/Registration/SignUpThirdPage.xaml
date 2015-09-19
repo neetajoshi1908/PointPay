@@ -1,0 +1,110 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.SignUpThirdPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <TextBlock Text="Verify Your Number" FontFamily="Segoe WP" FontSize="24" Foreground="White" HorizontalAlignment="Left"  Margin="20,-40,0,0"/>
+            <HyperlinkButton NavigateUri="/Views/Home/HomePage.xaml"  FontSize="22" Margin="0,-40,20,0" Foreground="WHITE" HorizontalAlignment="Right" FontFamily="Verdana, Geneva, sans-serif">
+                <HyperlinkButton.Template>
+                    <ControlTemplate>
+                        <TextBlock TextAlignment="Center">SKIP</TextBlock>
+                    </ControlTemplate>
+                </HyperlinkButton.Template>
+            </HyperlinkButton>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <StackPanel  Margin="10,10,10,10">
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock Text="Communication message with verification code" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="has been sent to following number. Please verify" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="your number by entering the code.Standard" FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                    <TextBlock Text="SMS charges may apply." FontFamily="Verdana, Geneva, sans-serif" FontSize="19" Foreground="Black"  Margin="0,0,0,0"/>
+                </StackPanel>
+                <StackPanel Margin="50,40,0,0" Orientation='Horizontal' >
+                    <StackPanel>
+                        <TextBlock Name="txtBusinessPhone" Width="320" Text="" FontFamily="Verdana, Geneva, sans-serif" FontSize="24" Foreground="Black" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="/Assets/Edit.png" Margin="0,0,0,0" Width="35"  HorizontalAlignment="Right" Tap="Image_Tap" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" >
+                    <StackPanel>
+                        <TextBox Name="verificationPref1" MaxLength="1"  Width="90" BorderBrush="Gray" BorderThickness="2" InputScope="Number" KeyDown="verificationPref1_KeyDown" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="verificationPref2" MaxLength="1" Width="90" BorderBrush="Gray" BorderThickness="2" InputScope="Number" KeyDown="verificationPref2_KeyDown"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="verificationPref3" MaxLength="1" Width="90" BorderBrush="Gray" BorderThickness="2" InputScope="Number" KeyDown="verificationPref3_KeyDown" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="verificationPref4" MaxLength="1" Width="90" BorderBrush="Gray" BorderThickness="2" InputScope="Number" KeyDown="verificationPref4_KeyDown" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="verificationPref5" MaxLength="1" Width="90" BorderBrush="Gray" BorderThickness="2" InputScope="Number"  />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <Button Name="btnVerify" Click="btnVerify_Click"  Content="Verify" Foreground="Black" BorderBrush="Black" HorizontalAlignment="Center" Width="300"/>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <TextBlock Text="Don't receive code yet?" FontFamily="Verdana, Geneva, sans-serif" FontSize="25" Foreground="Black" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="0,20,0,0" >
+                    <Button Name="btnResendCode" Click="btnResendCode_Click" Content="Resend" Foreground="Black" BorderBrush="Black" HorizontalAlignment="Center" Width="300"/>
+                </StackPanel>
+            </StackPanel >
+
+            <!--Edit Popup-->
+            <Popup x:Name="popupEditUser">
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <StackPanel Width="Auto" Height="Auto" MinHeight="130" Background="White" HorizontalAlignment="Center" >
+                        <StackPanel HorizontalAlignment="Right" Width="50" Height="50">
+                            <Image Name="btncloseEditPopup" Source="/Assets/close_icon.png" Tap="btncloseEditPopup_Tap"  Width="30" Margin="0,15,15,0"/>
+                        </StackPanel>
+                        <StackPanel Width="480">
+                             <TextBlock TextWrapping="Wrap" Text="Edit number" Foreground="Black" HorizontalAlignment="Center" FontSize="25"/>
+                            <!--First Name-->
+                            <Border CornerRadius="25" BorderThickness="2" BorderBrush="Gray" Width="350" Margin="0,20,0,0">
+                                <toolkit:PhoneTextBox Name="txtnumber" GotFocus="txtnumber_GotFocus"  FontFamily="verdana" HintStyle="{StaticResource HintStyleWhiteScreenTextbox}" Background="Transparent" Hint="Phone..." Foreground="Black" BorderBrush="Transparent"  FontSize="20" Margin="-10,-10,-10,-10" Width="350" />
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Width="480" Margin="0,15,0,15">
+                            <Button x:Name="btnUpdate" Click="btnUpdate_Click" Width="300" Content="Update" Foreground="Black" BorderBrush="Black" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Popup>
+            <!--Gray Background-->
+            <Grid x:Name="grdGrayBackground"  Visibility="Collapsed" Margin="0,-50,0,-40"  Background="Transparent"  >
+                <Grid Background="Gray" Opacity="0.5"></Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

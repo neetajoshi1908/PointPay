@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="PointePayApp.Views.PopUpUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  >
+
+    <Border BorderBrush="Gray" BorderThickness="2">
+        <StackPanel x:Name="LayoutRoot" Width="480" Height="200" Background="White" >
+            <StackPanel HorizontalAlignment="Right" Width="50" Height="50">
+                <Image Name="btnclose" Source="/Assets/close_icon.png"  Width="30" Margin="0,15,15,0"/>
+            </StackPanel>
+            <Button x:Name="btnEdit" Width="420" Content="Edit" Foreground="Black" BorderBrush="Black"/>
+            <Button x:Name="btnblock" Width="420" Content="Block" Foreground="Black" BorderBrush="Black"/>
+        </StackPanel>
+    </Border>
+</UserControl>

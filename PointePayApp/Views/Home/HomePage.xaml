@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PointePayApp.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded" >
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="0,0,0,0">
+            <Image Source="/Assets/green_bg.png" Margin="0,0,0,0" />
+            <Image Source="/Assets/menu.png" Margin="10,-55,0,0" Width="60" Height="50" HorizontalAlignment="Left" Tap="Image_Tap"/>
+        </StackPanel>
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <StackPanel Name="Search_Panel" Visibility="Collapsed"  Width="410" Height="800"  HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Top"    UseLayoutRounding="True"  Grid.Row="1"  Margin="0,0,0,0">
+                <phone:LongListSelector  x:Name="lstMenuItems" SelectionChanged="lstMenuItems_SelectionChanged">
+                    <phone:LongListSelector.ListHeader>
+                        <StackPanel Orientation="Horizontal" Height="150"   Margin="0,0,0,5">
+                            <StackPanel >
+                                <Ellipse x:Name="ellipse" Width="70" Height="70" Stroke="Gray" Margin="10,10,10,10">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/Assets/Employee/account-circle-White.png" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </StackPanel>
+                            <StackPanel Width="310"  Margin="-70,85,0,5">
+                                <StackPanel>
+                                    <TextBlock Name="txtHeaderOrgName" Text="ggfgf" Foreground="White"  Margin="0,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Name="txtHeaderFullName" Text="ggfgf" Foreground="White"  Margin="0,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="/Assets/Sliderbg.png"    />
+                            </StackPanel.Background>
+                        </StackPanel>
+                    </phone:LongListSelector.ListHeader>
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="50" Background="{Binding selectedBgColor}" Margin="0,0,0,5">
+                                <Image Source="{Binding iconsrc}"  Width="30" Margin="10,0,10,0"/>
+                                <StackPanel Width="310">
+                                    <TextBlock Name="txtItemTitle" Text="{Binding Text}" FontSize="20" FontFamily="Segoe WP" Margin="15,12,0,0" Foreground="{Binding selectedTextColor}"  />
+                                </StackPanel>
+                                <Image Source="/Assets/MenuIcon/countbg.png"  Width="50" Margin="0,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                    <phone:LongListSelector.ListFooter>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <Image Source="/Assets/line.png"  Width="Auto" Height="2" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Assets/arrow-left.png"  Width="30" Margin="10,0,10,0"/>
+                                <StackPanel Orientation="Horizontal"   Margin="15,0,0,5">
+                                    <HyperlinkButton Name="btnSignOut"  Foreground="White" FontSize="20" FontFamily="Segoe WP" Click="btnSignOut_Click">
+                                        <HyperlinkButton.Template>
+                                            <ControlTemplate>
+                                                <TextBlock TextAlignment="Center">SignOut</TextBlock>
+                                            </ControlTemplate>
+                                        </HyperlinkButton.Template>
+                                    </HyperlinkButton>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </phone:LongListSelector.ListFooter>
+                </phone:LongListSelector>
+                <StackPanel.Background>
+                    <ImageBrush x:Name="myImageBrush" ImageSource="/Assets/MenuIcon/header_bg.png" />
+                </StackPanel.Background>
+            </StackPanel>
+            <!--Loader-->
+            <Grid x:Name="myIndeterminateProbar" Visibility="Collapsed" Margin="0,-50,0,0"  Background="Transparent"  >
+                <Grid Background="White" Opacity="0.2"></Grid>
+                <StackPanel VerticalAlignment="Center">
+                    <ProgressBar IsIndeterminate="True" Foreground="Red" Margin="0,-10,0,0" ></ProgressBar>
+                    <TextBlock Text="Loading..." FontSize="22" FontFamily="Segoe WP"   Foreground="Black"  HorizontalAlignment="Center" ></TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
